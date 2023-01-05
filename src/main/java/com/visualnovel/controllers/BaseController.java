@@ -49,6 +49,21 @@ abstract public class BaseController {
     }
 
     @FXML
+    public void goBack() {
+        System.out.println(Game.gameState);
+        // check if in scene or choice
+        if (Game.gameState.equals("MAINMENU")) {
+            ManagementHub.changeView(viewManagement.getMainMenuView());
+        }
+        else if (Game.gameState.equals("DIALOGUE")) {
+            ManagementHub.changeView(viewManagement.getSceneView());
+        }
+        else if (Game.gameState.equals("CHOICE")) {
+            ManagementHub.changeView(viewManagement.getChoiceView());
+        }
+    }
+
+    @FXML
     public void quitWithoutSaving() {
         Platform.exit();
         System.exit(0);
