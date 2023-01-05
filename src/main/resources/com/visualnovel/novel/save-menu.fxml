@@ -66,7 +66,7 @@
             <Text layoutX="269.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date:" wrappingWidth="112.13671875" />
             <Text layoutX="269.0" layoutY="334.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Save 5" wrappingWidth="112.13671875" />
             <Text layoutX="269.0" layoutY="353.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date:" wrappingWidth="112.13671875" />
-            <Button alignment="CENTER" layoutX="172.0" layoutY="419.0" mnemonicParsing="false" onAction="#showMainMenu" prefHeight="25.0" prefWidth="127.0" text="Back" textAlignment="CENTER" />
+            <Button alignment="CENTER" layoutX="172.0" layoutY="419.0" mnemonicParsing="false" onAction="#goBack" prefHeight="25.0" prefWidth="127.0" text="Back" textAlignment="CENTER" />
             <Button alignment="CENTER" layoutX="381.0" layoutY="419.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="86.0" text="Settings" textAlignment="CENTER" />
             <Button alignment="CENTER" layoutX="550.0" layoutY="419.0" mnemonicParsing="false" onAction="#saveAndQuit" prefHeight="25.0" prefWidth="127.0" text="Quit" textAlignment="CENTER" />
          </children>

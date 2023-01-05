@@ -23,7 +23,6 @@ public class VisualNovelLoader extends Application {
         stage.setScene(scene);
         stage.show();
 
-        new Game("001");
         // changes only work if after displayed.
         // ManagementHub.changeView(viewManagement.getSceneView());
     }

@@ -43,7 +43,7 @@
                <items>
                   <HBox alignment="CENTER" prefHeight="25.0" prefWidth="813.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="84.0" text="Save Menu" />
+                        <Button mnemonicParsing="false" onAction="#showSaveMenu" prefHeight="25.0" prefWidth="84.0" text="Save Menu" />
                         <HBox alignment="CENTER" prefHeight="25.0" prefWidth="50.0" />
                         <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="80.0" text="Quicksave" />
                         <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="82.0" text="Quickload" />
