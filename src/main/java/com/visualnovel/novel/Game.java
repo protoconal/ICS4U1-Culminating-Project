@@ -8,7 +8,7 @@ import java.util.List;
 import static com.visualnovel.novel.VisualNovelLoader.viewManagement;
 
 public class Game {
-    public static String gameState = "";
+    public static String gameState = "MAINMENU";
 
     private final ViewSceneController sceneController = viewManagement.getViewSceneController();
     public static final DialogueOrchestrator dialogueOrchestrator = new DialogueOrchestrator();
@@ -37,6 +37,5 @@ public class Game {
         this.currentScene = currentSceneContainer.getScene(sceneID);
         // update dialogue orchestrator with raw data
         dialogueOrchestrator.updateOrchestrator(this.currentScene.getDialogue());
-        gameState = "DIALOGUE";
     }
 }
