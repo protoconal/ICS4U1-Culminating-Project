@@ -17,7 +17,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" minHeight="-Infinity" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.visualnovel.novel.ViewSceneController">
+<BorderPane maxHeight="-Infinity" minHeight="-Infinity" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.visualnovel.controllers.ViewSceneController">
    <top>
       <MenuBar prefHeight="0.0" prefWidth="717.0" BorderPane.alignment="CENTER">
          <menus>
@@ -69,12 +69,12 @@
             <Pane layoutX="149.0" layoutY="348.0" prefHeight="129.0" prefWidth="550.0" style="-fx-background-color: black; -fx-opacity: 65%;" />
             <Pane layoutX="150.0" layoutY="348.0" prefHeight="129.0" prefWidth="550.0">
                <children>
-                  <Text fill="WHITE" layoutX="8.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NAME" underline="true" wrappingWidth="117.5625">
+                  <Text fx:id="characterLabel" fill="WHITE" layoutX="8.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NAME" underline="true" wrappingWidth="117.5625">
                      <font>
                         <Font name="System Bold Italic" size="20.0" />
                      </font>
                   </Text>
-                  <Text fill="WHITE" layoutX="9.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="hdkiashdashdjkahsdjkasdhjkasd&#10;hdkiashdashdjkahsdjkasdhjkasd&#10;hdkiashdashdjkahsdjkasdhjkasd" wrappingWidth="532.5625">
+                  <Text fx:id="characterDialogue" fill="WHITE" layoutX="9.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="hdkiashdashdjkahsdjkasdhjkasd&#10;hdkiashdashdjkahsdjkasdhjkasd&#10;hdkiashdashdjkahsdjkasdhjkasd" wrappingWidth="532.5625">
                      <font>
                         <Font size="14.0" />
                      </font>

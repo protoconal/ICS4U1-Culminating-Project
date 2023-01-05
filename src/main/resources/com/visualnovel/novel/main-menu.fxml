@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" minHeight="-Infinity" prefWidth="828.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.visualnovel.novel.MainMenuController">
+<BorderPane maxHeight="-Infinity" minHeight="-Infinity" prefWidth="828.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.visualnovel.controllers.MainMenuController">
    <top>
       <MenuBar prefHeight="0.0" prefWidth="717.0" BorderPane.alignment="CENTER">
          <menus>
