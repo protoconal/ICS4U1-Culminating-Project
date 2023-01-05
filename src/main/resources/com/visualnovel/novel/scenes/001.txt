@@ -10,8 +10,18 @@ SCENE ID: <>001
 CHARACTERS: PHB,JSH,DAN
 
 PHB: <>Hello, I am Phoebe.
+PHB: <>This is test line 1.
+PHB: <>This is test line 2.
+PHB: <>This is test line 3.
 JSH: <>Hello, I am Josh.
 DAN: <>Hello, I am Daniel
+JSH: <>Repeated Line Test 1.
+JSH: <>Repeated Line Test 2.
+JSH: <>Repeated Line Test 3.
+DAN: <>Intermixed Line 1.
+JSH: <>Intermixed Line 1.
+DAN: <>Intermixed Line 2.
+JSH: <>Intermixed Line 2.
 
 // choices are defined with the tag, <>DESTINATIONSUBSCENE<>Text to display
 CHOICE: <>DAN<>Talk with Daniel.

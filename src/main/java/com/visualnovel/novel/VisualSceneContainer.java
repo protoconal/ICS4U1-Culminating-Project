@@ -7,11 +7,11 @@ public class VisualSceneContainer {
     public VisualSceneContainer() {
         scenes = new HashMap<>();
     }
-    public VisualScene getSubscene(String scene) {
+    public VisualScene getScene(String scene) {
         return scenes.getOrDefault(scene, null);
     }
 
-    public void addSubscene(String sceneID, VisualScene scene) {
+    public void addScene(String sceneID, VisualScene scene) {
         scenes.put(sceneID, scene);
     }
 

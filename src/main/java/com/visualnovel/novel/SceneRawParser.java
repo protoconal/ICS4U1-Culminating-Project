@@ -5,11 +5,11 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
+import static com.visualnovel.novel.Game.validCharacterTags;
+
 public class SceneRawParser {
-    static ArrayList<String> validCharacterTags = new ArrayList<>(List.of(new String[]{"PHB", "JSH", "DAN"}));
     static String[] validTags = {
             "SCENE ID",
             "CHOICE",
@@ -19,12 +19,18 @@ public class SceneRawParser {
             "ENDSCENE",
             "EMOTION"
     };
-    public static ArrayList<String> getRawScene(String sceneID) throws URISyntaxException {
+    public static ArrayList<String> getRawScene(String sceneID) {
         ArrayList<String> rawSceneData = new ArrayList<>();
 
         // https://stackoverflow.com/a/21591230
         URL resource = SceneRawParser.class.getResource("scenes/" + sceneID +".txt");
-        String storyPath = String.valueOf(Paths.get(resource.toURI()).toFile());
+        String storyPath = "";
+        try {
+            storyPath = String.valueOf(Paths.get(resource.toURI()).toFile());
+        }
+        catch (URISyntaxException e) {
+            System.out.println("MISSING SCENE FILE...");
+        }
 
         Scanner scan = null;
         try {
@@ -66,7 +72,7 @@ public class SceneRawParser {
     }
 
     // return VisualScene
-    public static VisualSceneContainer parseRaw(String sceneID) throws URISyntaxException {
+    public static VisualSceneContainer parseRaw(String sceneID) {
 
         ArrayList<String> rawInput = getRawScene(sceneID);
         VisualSceneContainer vsContainer = new VisualSceneContainer();
@@ -102,7 +108,7 @@ public class SceneRawParser {
                 goTo = data;
             }
             else if (tag.equals("SCENE") || tag.equals("SUBSCENE") || tag.equals("ENDSCENE")) {
-                vsContainer.addSubscene(currentSceneID, new VisualScene(choices, checks, dialogue, emotionConsequences, goTo));
+                vsContainer.addScene(currentSceneID, new VisualScene(choices, checks, dialogue, emotionConsequences, goTo));
                 // reset for next scene
 
                 currentSceneID = data.substring(data.indexOf("<>") + 2);
@@ -114,7 +120,7 @@ public class SceneRawParser {
                 goTo = "";
             }
         }
-        vsContainer.addSubscene(currentSceneID, new VisualScene(choices, checks, dialogue, emotionConsequences, goTo));
+        vsContainer.addScene(currentSceneID, new VisualScene(choices, checks, dialogue, emotionConsequences, goTo));
         return vsContainer;
     }
 

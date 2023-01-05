@@ -48,7 +48,7 @@
                   <Rectangle2D height="480.0" minX="848.0" minY="480.0" width="848.0" />
                </viewport>
             </ImageView>
-            <Button layoutX="340.0" layoutY="350.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="168.0" text="Start" />
+            <Button layoutX="340.0" layoutY="350.0" mnemonicParsing="false" onAction="#showScene" prefHeight="25.0" prefWidth="168.0" text="Start" />
             <Button layoutX="340.0" layoutY="404.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="168.0" text="Settings" />
             <Button layoutX="340.0" layoutY="431.0" mnemonicParsing="false" onAction="#quitWithoutSaving" prefHeight="25.0" prefWidth="168.0" text="Quit" />
             <Button layoutX="340.0" layoutY="377.0" mnemonicParsing="false" onAction="#showSaveMenu" prefHeight="25.0" prefWidth="168.0" text="Save Menu" />

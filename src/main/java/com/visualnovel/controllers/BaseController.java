@@ -1,38 +1,62 @@
 package com.visualnovel.controllers;
 
+import com.visualnovel.novel.Game;
+import javafx.animation.PauseTransition;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
-import javafx.scene.Parent;
+import javafx.util.Duration;
 
-import static com.visualnovel.novel.VisualNovelLoader.mainStage;
 import static com.visualnovel.novel.VisualNovelLoader.viewManagement;
 
 abstract public class BaseController {
-    public static void changeView(Parent view) {
-        // update scene from stage
-        // https://stackoverflow.com/a/44191727
-        mainStage.getScene().setRoot(view);
+    PauseTransition delay;
+    private boolean timeout = false;
+
+    public boolean isNotTimedOut() {
+        return !timeout;
     }
-    @FXML
-    protected void showMainMenu() {
-        changeView(viewManagement.getMainMenuView());
+
+    public void setTimeout(double time) {
+        timeout = true;
+        // https://stackoverflow.com/a/27334614
+        delay = new PauseTransition(Duration.seconds(time));
+        delay.setOnFinished( actionEvent -> {this.timeout = false;} );
+        delay.play();
     }
 
     @FXML
-    protected void showSaveMenu() {
-        changeView(viewManagement.getSaveMenuView());
+    public void showMainMenu() {
+        ManagementHub.changeView(viewManagement.getMainMenuView());
     }
 
     @FXML
-    protected void quitWithoutSaving() {
+    public void showSaveMenu() {
+        ManagementHub.changeView(viewManagement.getSaveMenuView());
+    }
+
+    @FXML
+    public void showScene() {
+        // check if in scene or choice
+        System.out.println("processed");
+        if (Game.gameState.equals("DIALOGUE")) {
+            System.out.println("dd");
+            ManagementHub.changeView(viewManagement.getSceneView());
+        }
+        else if (Game.gameState.equals("CHOICE")) {
+            System.out.println("cc");
+            ManagementHub.changeView(viewManagement.getChoiceView());
+        }
+    }
+
+    @FXML
+    public void quitWithoutSaving() {
         Platform.exit();
         System.exit(0);
     }
 
     @FXML
-    protected void saveAndQuit() {
+    public void saveAndQuit() {
         // TODO: implement quicksave
-        // quicksave
 
         quitWithoutSaving();
     }
