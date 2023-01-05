@@ -1,19 +1,16 @@
 package com.visualnovel.novel;
 
-import com.visualnovel.controllers.ViewSceneController;
+import com.visualnovel.controllers.BaseController;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-
-import static com.visualnovel.novel.VisualNovelLoader.viewManagement;
 
 public class Game {
     public static String gameState = "MAINMENU";
-
-    private final ViewSceneController sceneController = viewManagement.getViewSceneController();
     public static final DialogueOrchestrator dialogueOrchestrator = new DialogueOrchestrator();
-    private VisualSceneContainer currentSceneContainer;
-    private VisualScene currentScene;
+    private static VisualSceneContainer currentSceneContainer;
+    private static VisualScene currentScene;
     final static ArrayList<String> validCharacterTags = new ArrayList<>(List.of(new String[]{"PHB", "JSH", "DAN"}));
     final static Character[] characters = {
             new Phoebe(new String[]{""}),
@@ -21,21 +18,59 @@ public class Game {
             new Daniel(new String[]{""}),
     };
 
-    String currentSceneID;
-
     public Game(String currentSceneID) {
-        this.currentSceneID = currentSceneID;
-        processParentScene(currentSceneID);
+        processNextScene(currentSceneID);
     }
 
-    public void processParentScene(String sceneID) {
-        this.currentSceneContainer = SceneRawParser.parseRaw(sceneID);
+    public static void processNextScene(String nextSceneID) {
+        // if only is numbers, then it must be a scene id
+        if (Utils.isNumeric(nextSceneID)) {
+            processParentScene(nextSceneID);
+        }
+        else {
+            processScene(nextSceneID);
+        }
+    }
+
+    public static void processParentScene(String sceneID) {
+        currentSceneContainer = SceneRawParser.parseRaw(sceneID);
         processScene(sceneID);
     }
 
-    public void processScene(String sceneID) {
-        this.currentScene = currentSceneContainer.getScene(sceneID);
+    public static void processScene(String sceneID) {
+        currentScene = currentSceneContainer.getScene(sceneID);
+        // process emotions
+        ArrayList<String[]> emotions = (ArrayList<String[]>) currentScene.getEmotionConsequences().clone();
+        System.out.println(emotions);
+        for (int x = 0; x < emotions.size(); x++) {
+            String[] emotion = emotions.remove(0);
+            System.out.println(Arrays.toString(emotion));
+
+            int characterIndex = validCharacterTags.indexOf(emotion[0]);
+            Character character = characters[characterIndex];
+
+            character.updateEmotionIndex(emotion[1], Integer.parseInt(emotion[2]));
+            System.out.println("Updated Emotion indexi: " + Arrays.toString(character.getEmotionIndex()));
+        }
+
         // update dialogue orchestrator with raw data
-        dialogueOrchestrator.updateOrchestrator(this.currentScene.getDialogue());
+        dialogueOrchestrator.updateOrchestrator(currentScene.getDialogue());
+
+
+        BaseController.showScene();
     }
+
+    public static boolean isChoicesAvailable() {
+        return (currentScene.getChoices()[0] != null);
+    }
+
+    public static String getNextSceneID() {
+        return currentScene.getGoTo();
+    }
+
+    public static void processChoices() {
+        new ChoiceManager(currentScene);
+    }
+
+
 }

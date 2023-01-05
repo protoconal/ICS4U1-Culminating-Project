@@ -9,4 +9,14 @@ public class Utils {
         }
         return -1;
     }
+
+    public static boolean isNumeric(String value) {
+        try {
+            Double.parseDouble(value);
+            return true;
+        }
+        catch(NumberFormatException e){
+            return false;
+        }
+    }
 }
