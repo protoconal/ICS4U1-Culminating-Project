@@ -1,0 +1,47 @@
+// comments are defined like this, empty lines or lines without a <> are skipped
+
+// each character has a predetermined tag at the start
+// phoebe = PHB
+// josh = JSH
+// daniel = DAN
+
+// DECLARATION: <>Reads text after this
+SCENE ID: <>001
+CHARACTERS: PHB,JSH,DAN
+
+PHB: <>Hello, I am Phoebe.
+JSH: <>Hello, I am Josh.
+DAN: <>Hello, I am Daniel
+
+// choices are defined with the tag, <>DESTINATIONSUBSCENE<>Text to display
+CHOICE: <>DAN<>Talk with Daniel.
+CHOICE: <>PHB<>Talk with Phoebe.
+CHOICE: <>JSH<>Talk with Daniel.
+
+SUBSCENE: <>DAN
+DAN: <>Hello, I am Daniel
+DAN: <>This is dialogue 1
+DAN: <>This is dialogue 2
+DAN: <>This is dialogue 3
+
+CHOICE: <>DAN-1<>Talk about Sports.
+CHOICE: <>DAN-2<>Talk about Coffee.
+CHOICE: <>DAN-3<>Talk about Death.
+
+SUBSCENE: <>DAN-1
+DAN: <>This is dialogue 1
+EMOTION: <>happy<>+5
+GOTO: END-DAN
+
+SUBSCENE: <>DAN-3
+DAN: <>This is dialogue 1
+EMOTION: <>happy<>-5
+EMOTION: <>sad<>+5
+GOTO: END-DAN
+
+ENDSCENE: <>END-DAN
+CHOICE: <>001<>Ask him out.
+// check variable, condition, value, pass scene, fail scene
+CHECK: (happy) (more than) (3); (), ()
+CHOICE: <>HOME<>Go home.
+CHOICE: <>DAN-3<>Talk trash.

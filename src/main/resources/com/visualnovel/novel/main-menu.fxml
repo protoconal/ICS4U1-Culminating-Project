@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" minHeight="-Infinity" prefWidth="828.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.visualnovel.novel.MainMenuController">
+   <top>
+      <MenuBar prefHeight="0.0" prefWidth="717.0" BorderPane.alignment="CENTER">
+         <menus>
+            <Menu mnemonicParsing="false" text="File">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Close" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="About" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+   </top>
+   <bottom>
+      <VBox BorderPane.alignment="CENTER">
+         <children>
+            <ToolBar minHeight="25.0" prefHeight="25.0" style="-fx-background-color: darkgray;">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </ToolBar>
+         </children>
+      </VBox>
+   </bottom>
+   <center>
+      <AnchorPane BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="480.0" fitWidth="848.0" pickOnBounds="true" preserveRatio="true">
+               <viewport>
+                  <Rectangle2D height="480.0" minX="848.0" minY="480.0" width="848.0" />
+               </viewport>
+            </ImageView>
+            <Button layoutX="340.0" layoutY="350.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="168.0" text="Start" />
+            <Button layoutX="340.0" layoutY="404.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="168.0" text="Settings" />
+            <Button layoutX="340.0" layoutY="431.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="168.0" text="Quit" />
+            <Button layoutX="340.0" layoutY="377.0" mnemonicParsing="false" onAction="#onSaveMenuClick" prefHeight="25.0" prefWidth="168.0" text="Save Menu" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
