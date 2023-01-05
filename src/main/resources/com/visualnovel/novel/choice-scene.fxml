@@ -41,12 +41,11 @@
                </viewport>
             </ImageView>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#7f868d85" height="480.0" layoutX="132.0" stroke="TRANSPARENT" strokeType="INSIDE" width="584.0" />
-            <VBox layoutX="182.0" layoutY="146.0" prefHeight="188.0" prefWidth="485.0">
+            <VBox layoutX="182.0" layoutY="170.0" prefHeight="140.0" prefWidth="485.0">
                <children>
-                  <Button fx:id="optionOne" alignment="CENTER" mnemonicParsing="false" prefHeight="47.0" prefWidth="559.0" text="Option 1" textAlignment="CENTER" VBox.vgrow="ALWAYS" />
-                  <Button fx:id="optionTwo" alignment="CENTER" mnemonicParsing="false" prefHeight="47.0" prefWidth="559.0" text="Option 2" textAlignment="CENTER" />
-                  <Button fx:id="optionThree" alignment="CENTER" mnemonicParsing="false" prefHeight="47.0" prefWidth="524.0" text="Option 3" textAlignment="CENTER" />
-                  <Button fx:id="optionFour" alignment="CENTER" mnemonicParsing="false" prefHeight="47.0" prefWidth="524.0" text="Option 4" textAlignment="CENTER" />
+                  <Button fx:id="optionOne" alignment="CENTER" mnemonicParsing="false" onAction="#clickOptionOne" prefHeight="47.0" prefWidth="559.0" text="Option 1" textAlignment="CENTER" VBox.vgrow="ALWAYS" />
+                  <Button fx:id="optionTwo" alignment="CENTER" mnemonicParsing="false" onAction="#clickOptionTwo" prefHeight="47.0" prefWidth="559.0" text="Option 2" textAlignment="CENTER" />
+                  <Button fx:id="optionThree" alignment="CENTER" mnemonicParsing="false" onAction="#clickOptionThree" prefHeight="47.0" prefWidth="524.0" text="Option 3" textAlignment="CENTER" />
                </children>
             </VBox>
          </children>

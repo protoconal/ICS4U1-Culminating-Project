@@ -8,12 +8,12 @@ public abstract class Character {
             "sad",
             "angry",
     };
-    private double[] emotionIndex = {0, 0, 0};
+    private final double[] emotionIndex = {0, 0, 0};
     private final String name;
     private final String[] spriteLocations;
     private final double decayEmotionFactor;
 
-    public ArrayList<String> dialogueQueue;
+    private ArrayList<String> dialogueQueue;
 
 
     public Character(String name, String[] spriteLocations, double decayEmotionFactor) {
@@ -30,6 +30,10 @@ public abstract class Character {
         return dialogueQueue.remove(0);
     }
 
+    public void setDialogue(ArrayList<String> dialogueQueue) {
+        this.dialogueQueue = dialogueQueue;
+    }
+
     public String[] getSpriteLocations() {
         return this.spriteLocations;
     }
@@ -41,6 +45,10 @@ public abstract class Character {
     public double[] getEmotionIndex() {
         return this.emotionIndex;
     }
+    public String[] getEmotionStrings() {
+        return this.emotionStrings;
+    }
+
 
     public void decayEmotion() {
         for (int x = 0; x <= this.emotionIndex.length; x++) {

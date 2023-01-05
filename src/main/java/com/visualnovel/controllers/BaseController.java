@@ -20,7 +20,7 @@ abstract public class BaseController {
         timeout = true;
         // https://stackoverflow.com/a/27334614
         delay = new PauseTransition(Duration.seconds(time));
-        delay.setOnFinished( actionEvent -> {this.timeout = false;} );
+        delay.setOnFinished( actionEvent -> this.timeout = false);
         delay.play();
     }
 
@@ -35,7 +35,7 @@ abstract public class BaseController {
     }
 
     @FXML
-    public void showScene() {
+    public static void showScene() {
         // check if in scene or choice
         System.out.println("processed");
         if (Game.gameState.equals("DIALOGUE")) {

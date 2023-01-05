@@ -26,7 +26,7 @@ JSH: <>Intermixed Line 2.
 // choices are defined with the tag, <>DESTINATIONSUBSCENE<>Text to display
 CHOICE: <>DAN<>Talk with Daniel.
 CHOICE: <>PHB<>Talk with Phoebe.
-CHOICE: <>JSH<>Talk with Daniel.
+CHOICE: <>JSH<>Talk with Josh.
 
 SUBSCENE: <>DAN
 DAN: <>Hello, I am Daniel
@@ -39,19 +39,31 @@ CHOICE: <>DAN-2<>Talk about Coffee.
 CHOICE: <>DAN-3<>Talk about Death.
 
 SUBSCENE: <>DAN-1
-DAN: <>This is dialogue 1
-EMOTION: <>happy<>+5
+DAN: <>DAN1 This is dialogue 1
+EMOTION: (DAN) (happy) (+5)
+GOTO: END-DAN
+
+SUBSCENE: <>DAN-2
+EMOTION: (DAN) (happy) (+5)
 GOTO: END-DAN
 
 SUBSCENE: <>DAN-3
-DAN: <>This is dialogue 1
-EMOTION: <>happy<>-5
-EMOTION: <>sad<>+5
+DAN: <>DAN3 This is dialogue 1
+EMOTION: (DAN) (happy) (-5)
+EMOTION: (DAN) (sad) (+5)
 GOTO: END-DAN
+
+SUBSCENE: <>DAN-FAIL
+DAN: <>FAILED CHECK
+GOTO: 003
+
+SUBSCENE: <>DAN-PASSED
+DAN: <>PASSED CHECK
+GOTO: 003
 
 ENDSCENE: <>END-DAN
 CHOICE: <>001<>Ask him out.
 // check variable, condition, value, pass scene, fail scene
-CHECK: (happy) (more than) (3); (), ()
-CHOICE: <>HOME<>Go home.
+CHECK: (DAN) (happy) (more than) (3); (DAN-PASSED), (DAN-FAIL)
+CHOICE: <>003<>Go home.
 CHOICE: <>DAN-3<>Talk trash.

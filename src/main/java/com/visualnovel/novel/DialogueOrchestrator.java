@@ -1,11 +1,11 @@
 package com.visualnovel.novel;
 
+import com.visualnovel.controllers.BaseController;
 import com.visualnovel.controllers.ViewSceneController;
 
 import java.util.ArrayList;
 
-import static com.visualnovel.novel.Game.validCharacterTags;
-import static com.visualnovel.novel.Game.characters;
+import static com.visualnovel.novel.Game.*;
 import static com.visualnovel.novel.VisualNovelLoader.viewManagement;
 
 public class DialogueOrchestrator {
@@ -17,7 +17,7 @@ public class DialogueOrchestrator {
     public DialogueOrchestrator() {}
 
     public void updateOrchestrator(ArrayList<String> sceneDialogue) {
-        this.sceneDialogue = processRawDialogue(sceneDialogue);
+        this.sceneDialogue = processRawDialogue((ArrayList<String>) sceneDialogue.clone());
         nextCharacter();
     }
 
@@ -47,31 +47,40 @@ public class DialogueOrchestrator {
             }
             characterDialogue.add(dialogue);
         }
-        dialogueQueue.add(characterDialogue);
+        if (characterDialogue != null) {
+            dialogueQueue.add(characterDialogue);
+        }
         return dialogueQueue;
     }
 
     public void nextCharacter() {
+
         if (!sceneDialogue.isEmpty()) {
             System.out.println(sceneDialogue);
             ArrayList<String> currentQueue = sceneDialogue.remove(0);
             currentCharacter = characters[Integer.parseInt(currentQueue.remove(0))];
-            currentCharacter.dialogueQueue = currentQueue;
+            currentCharacter.setDialogue(currentQueue);
             this.sceneController.updateNameBox(currentCharacter.getName());
             this.nextLine();
         }
         else {
-            Game.gameState = "CHOICE";
-            // empty sceneQueue, somehow signal home
-            // change to choice scene
-            sceneController.showScene();
+            if (Game.isChoicesAvailable()) {
+                Game.gameState = "CHOICE";
+                // change to choice scene
+                Game.processChoices();
+                BaseController.showScene();
+            }
+            else {
+                Game.processNextScene(Game.getNextSceneID());
+            }
+
         }
     }
     public void nextLine() {
-        if (!currentCharacter.dialogueQueue.isEmpty()) {
+        if (currentCharacter.hasDialogue()) {
             Game.gameState = "DIALOGUE";
             this.sceneController.updateDialogueBox(
-                    currentCharacter.dialogueQueue.remove(0)
+                    currentCharacter.nextDialogue()
             );
         }
         else {

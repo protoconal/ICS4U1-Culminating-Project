@@ -95,7 +95,7 @@ public class SceneRawParser {
                 dialogue.add(currentLine);
             }
             else if (tag.equals("EMOTION")) {
-                emotionConsequences.add(data.substring(data.indexOf("<>") + 2));
+                emotionConsequences.add(data);
             }
             else if (tag.equals("CHOICE")) {
                 choices[choiceCounter] = data.substring(data.indexOf("<>") + 2);

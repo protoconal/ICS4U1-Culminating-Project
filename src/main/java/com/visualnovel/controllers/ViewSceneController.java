@@ -22,7 +22,7 @@ public class ViewSceneController extends BaseController {
     @FXML
     public void onClick() {
         if (isNotTimedOut()) {
-            setTimeout(0.5);
+            // setTimeout(0.5);
             dialogueOrchestrator.nextLine();
         }
     }
