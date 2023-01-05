@@ -10,7 +10,6 @@ import java.io.IOException;
 public class VisualNovelLoader extends Application {
     public static ManagementHub viewManagement;
     public static Stage mainStage;
-
     final String gameName = "TESTING GAME";
 
     @Override
@@ -24,7 +23,9 @@ public class VisualNovelLoader extends Application {
         stage.setScene(scene);
         stage.show();
 
-        Novel.run();
+        new Game("001");
+        // changes only work if after displayed.
+        // ManagementHub.changeView(viewManagement.getSceneView());
     }
 
     public static void main(String[] args) {
