@@ -53,9 +53,6 @@ public class SceneRawParser {
                     }
                 }
             }
-            for (String rawSceneDatum : rawSceneData) {
-                System.out.print(rawSceneDatum + "\n");
-            }
         }
         catch (IOException e) {
             System.out.println(e);
@@ -65,7 +62,6 @@ public class SceneRawParser {
                 scan.close();
             }
         }
-
         return rawSceneData;
     }
 

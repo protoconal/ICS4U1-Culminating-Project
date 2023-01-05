@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" minHeight="-Infinity" prefWidth="828.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.visualnovel.novel.MainMenuController">
+<BorderPane maxHeight="-Infinity" minHeight="-Infinity" prefWidth="828.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.visualnovel.controllers.MainMenuController">
    <top>
       <MenuBar prefHeight="0.0" prefWidth="717.0" BorderPane.alignment="CENTER">
          <menus>
@@ -50,8 +50,8 @@
             </ImageView>
             <Button layoutX="340.0" layoutY="350.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="168.0" text="Start" />
             <Button layoutX="340.0" layoutY="404.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="168.0" text="Settings" />
-            <Button layoutX="340.0" layoutY="431.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="168.0" text="Quit" />
-            <Button layoutX="340.0" layoutY="377.0" mnemonicParsing="false" onAction="#onSaveMenuClick" prefHeight="25.0" prefWidth="168.0" text="Save Menu" />
+            <Button layoutX="340.0" layoutY="431.0" mnemonicParsing="false" onAction="#quitWithoutSaving" prefHeight="25.0" prefWidth="168.0" text="Quit" />
+            <Button layoutX="340.0" layoutY="377.0" mnemonicParsing="false" onAction="#showSaveMenu" prefHeight="25.0" prefWidth="168.0" text="Save Menu" />
          </children>
       </AnchorPane>
    </center>
