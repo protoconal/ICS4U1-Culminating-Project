@@ -11,3 +11,5 @@ The actual project that was submitted can be found [here.](https://github.com/pr
 ***Expanded the game using mini-games that actually used arrays, sorts and 4U-level concepts.***
 
 ***Anyways, a mark is a mark***
+
+***Yes, some of the if-else statements should have been written as a switch statement, but, I don't think we were allowed to use the break keyword.***
